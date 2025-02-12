@@ -1,6 +1,6 @@
 import streamlit as st
-from PIL import Image
-import time
+
+st.set_page_config(page_title="Hymns Web")
 
 default_img_path = "hymnals/BH001.jpg"
 image_path = ""
@@ -16,8 +16,10 @@ def get_hymn_num():
         hymn_num = "BH" + hymn_num + ".jpg"
     return (f"hymnals/{hymn_num}")
 
+st.markdown("<h3 style='text-align: center;'>Hymns</h3>", unsafe_allow_html=True)
+
 user_input = st.text_input(label="Enter a hymn number (1 ~ 414)",
-              placeholder="196",
+              placeholder="202",
               max_chars=3,
               # on_change=display_hymn,
               key="hymn_num")
@@ -33,4 +35,4 @@ if user_input:
     except:
         st.error(f"Invalid Input: '{user_input}'")
 
-st.write("Copyright @ KApe Technologies 2025")
+# st.write("Copyright @ KApe Technologies 2025")
